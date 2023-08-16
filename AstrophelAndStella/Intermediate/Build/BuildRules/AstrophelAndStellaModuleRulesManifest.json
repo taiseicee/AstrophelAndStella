@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStella.Build.cs",
+		"C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella.Target.cs",
+		"C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStellaEditor.Target.cs"
+	],
+	"EngineVersion": "5.2.1"
+}

@@ -1,0 +1,42 @@
+[
+	{
+		"file": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStella.Build.cs",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella\\AstrophelAndStella.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStella.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella\\AstrophelAndStella.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStella.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella\\AstrophelAndStella.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStellaGameModeBase.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella\\AstrophelAndStella.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella\\AstrophelAndStellaGameModeBase.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella\\AstrophelAndStella.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	}
+]

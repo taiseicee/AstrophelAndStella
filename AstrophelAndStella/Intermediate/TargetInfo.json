@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "AstrophelAndStella",
+			"Path": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStella.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "AstrophelAndStellaEditor",
+			"Path": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\Source\\AstrophelAndStellaEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

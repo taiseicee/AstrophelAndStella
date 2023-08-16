@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\sugiyat\\documents\\unreal projects\\astrophelandstella\\astrophelandstella\\intermediate\\build\\win64\\unrealeditor\\inc\\astrophelandstella\\uht\\spacecraftplayer.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\sugiyat\\documents\\unreal projects\\astrophelandstella\\astrophelandstella\\intermediate\\build\\win64\\x64\\astrophelandstellaeditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\users\\sugiyat\\documents\\unreal projects\\astrophelandstella\\astrophelandstella\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astrophelandstella\\definitions.astrophelandstella.h",
+            "c:\\users\\sugiyat\\documents\\unreal projects\\astrophelandstella\\astrophelandstella\\source\\astrophelandstella\\spacecraftplayer.h",
+            "c:\\users\\sugiyat\\documents\\unreal projects\\astrophelandstella\\astrophelandstella\\intermediate\\build\\win64\\unrealeditor\\inc\\astrophelandstella\\uht\\spacecraftplayer.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

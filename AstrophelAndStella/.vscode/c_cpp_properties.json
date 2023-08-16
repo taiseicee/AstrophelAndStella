@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "AstrophelAndStellaEditor Editor Win64 Development (AstrophelAndStella)",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "epic.ue",
+            "compileCommands": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_AstrophelAndStella.json"
+        },
+        {
+            "name": "Win32",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "epic.ue",
+            "compileCommands": "C:\\Users\\sugiyat\\Documents\\Unreal Projects\\AstrophelAndStella\\AstrophelAndStella\\.vscode\\compileCommands_Default.json"
+        }
+    ],
+    "version": 4
+}
