@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeAstrophelAndStella_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x31771892,
+				0x5131E63A,
 				0x0A699312,
 				METADATA_PARAMS(nullptr, 0)
 			};
@@ -25,5 +25,5 @@ void EmptyLinkFunctionForGeneratedCodeAstrophelAndStella_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_AstrophelAndStella.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstrophelAndStella(Z_Construct_UPackage__Script_AstrophelAndStella, TEXT("/Script/AstrophelAndStella"), Z_Registration_Info_UPackage__Script_AstrophelAndStella, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x31771892, 0x0A699312));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstrophelAndStella(Z_Construct_UPackage__Script_AstrophelAndStella, TEXT("/Script/AstrophelAndStella"), Z_Registration_Info_UPackage__Script_AstrophelAndStella, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x5131E63A, 0x0A699312));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
