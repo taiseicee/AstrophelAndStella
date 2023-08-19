@@ -56,8 +56,7 @@ void ASpacecraftPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
 	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-	InputVelocity1 = Value.Get<FVector>() * ThrustMaxVelocity;
-	MovementCTOn(DeltaTime, Value.Get<FVector>() * ThrustMaxVelocity);
+	MovementCTOn(DeltaTime, Value.Get<FVector>());
 }
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
@@ -78,7 +77,7 @@ void ASpacecraftPlayer::MovementCTOn(const float& DeltaTime, const FVector& Inpu
 	Position = Position + DeltaTime * Velocity;
 	Velocity = Velocity + DeltaTime * (InputPosition + K3 * InputVelocity - Position - K1 * Velocity) / K2_Stable;
 
-	AddActorLocalOffset(Velocity * DeltaTime, true);
+	AddActorLocalOffset(ThrustMaxVelocity * Velocity * DeltaTime, true);
 	//AddActorWorldOffset(GlobalVector * DeltaTime, true);
 }
 

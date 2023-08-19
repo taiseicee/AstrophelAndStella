@@ -55,8 +55,6 @@ private:
    	FVector Velocity = FVector::ZeroVector;
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
    	FVector InputPosition = FVector::ZeroVector;
-	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector InputVelocity1 = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
 	float f = 0.08f;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")

@@ -81,10 +81,6 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_InputPosition;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputVelocity1_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_InputVelocity1;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_f_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_f;
@@ -231,13 +227,6 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition = { "InputPosition", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, InputPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData[] = {
-		{ "Category", "Movement|Thrust" },
-		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1 = { "InputVelocity1", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, InputVelocity1), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f_MetaData[] = {
 		{ "Category", "Movement|Thrust" },
 		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
@@ -305,7 +294,6 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r,
@@ -352,9 +340,9 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASpacecraftPlayer, ASpacecraftPlayer::StaticClass, TEXT("ASpacecraftPlayer"), &Z_Registration_Info_UClass_ASpacecraftPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpacecraftPlayer), 1215837890U) },
+		{ Z_Construct_UClass_ASpacecraftPlayer, ASpacecraftPlayer::StaticClass, TEXT("ASpacecraftPlayer"), &Z_Registration_Info_UClass_ASpacecraftPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpacecraftPlayer), 3545085673U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_212296170(TEXT("/Script/AstrophelAndStella"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_180911960(TEXT("/Script/AstrophelAndStella"),
 		Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
