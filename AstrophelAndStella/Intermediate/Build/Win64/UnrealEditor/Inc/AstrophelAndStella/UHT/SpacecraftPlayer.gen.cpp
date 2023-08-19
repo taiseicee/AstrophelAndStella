@@ -69,17 +69,33 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 		static void NewProp_CounterThrustOn_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_CounterThrustOn;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrustGlobal_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Position_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ThrustGlobal;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Position;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrustInput_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Velocity_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ThrustInput;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Velocity;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrustAcceleration_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputPosition_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ThrustAcceleration;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InputPosition;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputVelocity1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InputVelocity1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_f_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_f;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_z_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_z;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_r_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_r;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrustMaxVelocity_MetaData[];
 #endif
@@ -192,26 +208,56 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_CounterThrustOn = { "CounterThrustOn", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(ASpacecraftPlayer), &Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_CounterThrustOn_SetBit, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_CounterThrustOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_CounterThrustOn_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustGlobal_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position_MetaData[] = {
 		{ "Category", "Movement|Thrust" },
+		{ "Comment", "// 1 UE unit = 1 cm\n" },
 		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
+		{ "ToolTip", "1 UE unit = 1 cm" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustGlobal = { "ThrustGlobal", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, ThrustGlobal), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustGlobal_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustGlobal_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position = { "Position", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, Position), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustInput_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity_MetaData[] = {
 		{ "Category", "Movement|Thrust" },
 		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustInput = { "ThrustInput", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, ThrustInput), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustInput_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustInput_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity = { "Velocity", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, Velocity), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustAcceleration_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition_MetaData[] = {
 		{ "Category", "Movement|Thrust" },
 		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustAcceleration = { "ThrustAcceleration", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, ThrustAcceleration), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustAcceleration_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustAcceleration_MetaData)) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition = { "InputPosition", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, InputPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData[] = {
+		{ "Category", "Movement|Thrust" },
+		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1 = { "InputVelocity1", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, InputVelocity1), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f_MetaData[] = {
+		{ "Category", "Movement|Thrust" },
+		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f = { "f", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, f), METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z_MetaData[] = {
+		{ "Category", "Movement|Thrust" },
+		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z = { "z", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, z), METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r_MetaData[] = {
+		{ "Category", "Movement|Thrust" },
+		{ "ModuleRelativePath", "SpacecraftPlayer.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r = { "r", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ASpacecraftPlayer, r), METADATA_PARAMS(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustMaxVelocity_MetaData[] = {
 		{ "Category", "Movement|Thrust" },
@@ -256,9 +302,13 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ActionRotate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ActionToggleCounterThrust,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_CounterThrustOn,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustGlobal,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustInput,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustAcceleration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Position,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Velocity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputPosition,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_InputVelocity1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_f,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_z,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_r,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_ThrustMaxVelocity,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_Rotation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpacecraftPlayer_Statics::NewProp_RotationInput,
@@ -302,9 +352,9 @@ void EmptyLinkFunctionForGeneratedCodeSpacecraftPlayer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASpacecraftPlayer, ASpacecraftPlayer::StaticClass, TEXT("ASpacecraftPlayer"), &Z_Registration_Info_UClass_ASpacecraftPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpacecraftPlayer), 684901575U) },
+		{ Z_Construct_UClass_ASpacecraftPlayer, ASpacecraftPlayer::StaticClass, TEXT("ASpacecraftPlayer"), &Z_Registration_Info_UClass_ASpacecraftPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpacecraftPlayer), 1215837890U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_579072101(TEXT("/Script/AstrophelAndStella"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_212296170(TEXT("/Script/AstrophelAndStella"),
 		Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_SpacecraftPlayer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

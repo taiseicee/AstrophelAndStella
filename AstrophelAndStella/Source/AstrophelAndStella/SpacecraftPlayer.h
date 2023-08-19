@@ -48,14 +48,24 @@ private:
 	UPROPERTY(VisibleAnywhere, Category="Movement")
 	bool CounterThrustOn = true;
 
+	// 1 UE unit = 1 cm
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector ThrustGlobal = FVector::ZeroVector;
+   	FVector Position = FVector::ZeroVector;
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector ThrustInput = FVector::ZeroVector;
+   	FVector Velocity = FVector::ZeroVector;
+	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
+   	FVector InputPosition = FVector::ZeroVector;
+	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
+   	FVector InputVelocity1 = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-   	FVector ThrustAcceleration = FVector(25.f, 18.f, 18.f);
+	float f = 0.08f;
+	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
+	float z = 1.f;
+	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
+	float r = 0.f;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
    	FVector ThrustMaxVelocity = FVector(220.f, 155.f, 155.f);
+	float K1, K2, K3;
 
 	UPROPERTY(VisibleAnywhere, Category="Movement|Rotation")
    	FRotator Rotation = FRotator::ZeroRotator;
@@ -66,6 +76,6 @@ private:
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
    	FRotator RotationMaxVelocity = FRotator(40.f, 40.f, 40.f);
 
-	void MovementCTOn(const float& DeltaTime);
+	void MovementCTOn(const float& DeltaTime, const FVector& Input);
    	void MovementCTOff(const float& DeltaTime);
 };

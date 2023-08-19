@@ -9,6 +9,7 @@
 #include "EnhancedInputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Math/UnrealMathUtility.h"
 
 ASpacecraftPlayer::ASpacecraftPlayer() {
 	PrimaryActorTick.bCanEverTick = true;
@@ -32,32 +33,31 @@ void ASpacecraftPlayer::BeginPlay() {
 			Subsystem->AddMappingContext(MappingContextSpacecraft, 0);
 		}
 	}
+
+	K1 = z / (PI * f);
+	K2 = 1 / ((2 * PI * f) * (2 * PI * f));
+	K3 = r * z / (2 * PI * f);
 }
 
 void ASpacecraftPlayer::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
-	if (CounterThrustOn) {
-		MovementCTOn(DeltaTime);
-	} else {
-		MovementCTOff(DeltaTime);
-	}
 }
 
 void ASpacecraftPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent)) {
 		EnhancedInputComponent->BindAction(ActionThrust, ETriggerEvent::Triggered, this, &ASpacecraftPlayer::HandleInputThrust);
-		EnhancedInputComponent->BindAction(ActionThrust, ETriggerEvent::Completed, this, &ASpacecraftPlayer::HandleInputThrust);
+		EnhancedInputComponent->BindAction(ActionThrust, ETriggerEvent::None, this, &ASpacecraftPlayer::HandleInputThrust);
         EnhancedInputComponent->BindAction(ActionRotate, ETriggerEvent::Triggered, this, &ASpacecraftPlayer::HandleInputRotate);
-		EnhancedInputComponent->BindAction(ActionRotate, ETriggerEvent::Completed, this, &ASpacecraftPlayer::HandleInputRotate);
+		EnhancedInputComponent->BindAction(ActionRotate, ETriggerEvent::None, this, &ASpacecraftPlayer::HandleInputRotate);
         EnhancedInputComponent->BindAction(ActionToggleCounterThrust, ETriggerEvent::Started, this, &ASpacecraftPlayer::ToggleCounterThrust);
 	}
 }
 
 void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
-	ThrustInput = Value.Get<FVector>().X * GetActorForwardVector() +
-                  Value.Get<FVector>().Y * GetActorRightVector() +
-                  Value.Get<FVector>().Z * GetActorUpVector();
+	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
+	InputVelocity1 = Value.Get<FVector>() * ThrustMaxVelocity;
+	MovementCTOn(DeltaTime, Value.Get<FVector>() * ThrustMaxVelocity);
 }
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
@@ -69,8 +69,17 @@ void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
 
 void ASpacecraftPlayer::ToggleCounterThrust(const FInputActionValue& Value) { CounterThrustOn = !CounterThrustOn; }
 
-void ASpacecraftPlayer::MovementCTOn(const float& DeltaTime) {
+void ASpacecraftPlayer::MovementCTOn(const float& DeltaTime, const FVector& InputVelocity) {
+	InputPosition = InputPosition + InputVelocity * DeltaTime;
 
+	float K2_Stable = 1.1f * (DeltaTime * DeltaTime / 4 + DeltaTime * K1 / 2);
+	K2_Stable = (K2 > K2_Stable) ? K2_Stable : K2;
+
+	Position = Position + DeltaTime * Velocity;
+	Velocity = Velocity + DeltaTime * (InputPosition + K3 * InputVelocity - Position - K1 * Velocity) / K2_Stable;
+
+	AddActorLocalOffset(Velocity * DeltaTime, true);
+	//AddActorWorldOffset(GlobalVector * DeltaTime, true);
 }
 
 void ASpacecraftPlayer::MovementCTOff(const float& DeltaTime) {
