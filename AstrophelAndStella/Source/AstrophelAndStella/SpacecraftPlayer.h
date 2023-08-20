@@ -46,11 +46,10 @@ private:
 	UPROPERTY(VisibleAnywhere, Category="Movement")
 	bool CounterThrustOn = true;
 
-	// 1 UE unit = 1 cm
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
    	FVector ThrustVelocity = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-   	FVector ThrustMaxVelocity = FVector(220.f, 155.f, 155.f);
+   	FVector ThrustMaxVelocity = FVector(22000.f, 15500.f, 15500.f);
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
 	class UProceduralAnimator* ThrustAnimator;
 

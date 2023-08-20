@@ -59,7 +59,9 @@ void EmptyLinkFunctionForGeneratedCodeProceduralAnimator() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UProceduralAnimator_Statics::NewProp_F_MetaData[] = {
 		{ "Category", "Constants" },
+		{ "Comment", "/*\n\x09* F: Natural Frequency. Describes the speed of which the system will respond to changes and the frequency the system will tend to vibrate at\n\x09* Z: Damping Coeffcient. At Z=0, no damping. At 0<Z<1 underdamping. At 1<=Z the speed of which the system will settle to the target\n\x09* R: Initial Response. At R=0, it will be slow to accelerate from rest. 0<R<1, the system will accelerate faster from rest. 1<R the target will overshoot \n\x09*/" },
 		{ "ModuleRelativePath", "ProceduralAnimator.h" },
+		{ "ToolTip", "* F: Natural Frequency. Describes the speed of which the system will respond to changes and the frequency the system will tend to vibrate at\n* Z: Damping Coeffcient. At Z=0, no damping. At 0<Z<1 underdamping. At 1<=Z the speed of which the system will settle to the target\n* R: Initial Response. At R=0, it will be slow to accelerate from rest. 0<R<1, the system will accelerate faster from rest. 1<R the target will overshoot" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UProceduralAnimator_Statics::NewProp_F = { "F", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UProceduralAnimator, F), METADATA_PARAMS(Z_Construct_UClass_UProceduralAnimator_Statics::NewProp_F_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UProceduralAnimator_Statics::NewProp_F_MetaData)) };
@@ -119,9 +121,9 @@ void EmptyLinkFunctionForGeneratedCodeProceduralAnimator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_ProceduralAnimator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UProceduralAnimator, UProceduralAnimator::StaticClass, TEXT("UProceduralAnimator"), &Z_Registration_Info_UClass_UProceduralAnimator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProceduralAnimator), 2566228372U) },
+		{ Z_Construct_UClass_UProceduralAnimator, UProceduralAnimator::StaticClass, TEXT("UProceduralAnimator"), &Z_Registration_Info_UClass_UProceduralAnimator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProceduralAnimator), 418248425U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_ProceduralAnimator_h_2360173224(TEXT("/Script/AstrophelAndStella"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_ProceduralAnimator_h_673423113(TEXT("/Script/AstrophelAndStella"),
 		Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_ProceduralAnimator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_sugiyat_Documents_Unreal_Projects_AstrophelAndStella_AstrophelAndStella_Source_AstrophelAndStella_ProceduralAnimator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
