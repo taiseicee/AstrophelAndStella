@@ -26,8 +26,6 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* ComponentMeshBase;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
-	class USpringArmComponent* ComponentCameraSpringArm;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	class UCameraComponent* ComponentCamera;
 
 	// Inputs
@@ -50,21 +48,16 @@ private:
 
 	// 1 UE unit = 1 cm
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector Velocity = FVector::ZeroVector;
+   	FVector ThrustVelocity = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
    	FVector ThrustMaxVelocity = FVector(220.f, 155.f, 155.f);
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
 	class UProceduralAnimator* ThrustAnimator;
 
 	UPROPERTY(VisibleAnywhere, Category="Movement|Rotation")
-   	FRotator Rotation = FRotator::ZeroRotator;
-	UPROPERTY(VisibleAnywhere, Category="Movement|Rotation")
-   	FRotator RotationInput = FRotator::ZeroRotator;
+   	FRotator RotationVelocity = FRotator::ZeroRotator;
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
-   	FRotator RotationAcceleration = FRotator(18.f, 18.f, 18.f);
+   	FVector RotationMaxVelocity = FVector(40.f, 40.f, 40.f);
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
-   	FRotator RotationMaxVelocity = FRotator(40.f, 40.f, 40.f);
-
-	void MovementCTOn(const float& DeltaTime, const FVector& InputVelocity);
-   	void MovementCTOff(const float& DeltaTime);
+	class UProceduralAnimator* RotationAnimator;
 };

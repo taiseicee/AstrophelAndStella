@@ -10,24 +10,18 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnrealMathUtility.h"
-
 #include "ProceduralAnimator.h"
 
 ASpacecraftPlayer::ASpacecraftPlayer() {
 	PrimaryActorTick.bCanEverTick = true;
 	ComponentMeshBase = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
-	ComponentCameraSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera Spring Arm"));
 	ComponentCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
 	RootComponent = ComponentMeshBase;
-	ComponentCameraSpringArm->SetupAttachment(ComponentMeshBase);
-	ComponentCamera->AttachToComponent(ComponentCameraSpringArm, FAttachmentTransformRules::KeepRelativeTransform);
-
-	ComponentCameraSpringArm->bUsePawnControlRotation = true;
-	ComponentCameraSpringArm->bEnableCameraLag = true;
-	ComponentCameraSpringArm->TargetArmLength = 5.f;
+	ComponentCamera->SetupAttachment(ComponentMeshBase);
 
 	ThrustAnimator = CreateDefaultSubobject<UProceduralAnimator>(TEXT("Thrust Animator"));
+	RotationAnimator = CreateDefaultSubobject<UProceduralAnimator>(TEXT("Rotation Animator"));
 }
 
 void ASpacecraftPlayer::BeginPlay() {
@@ -56,26 +50,26 @@ void ASpacecraftPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
 	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-	MovementCTOn(DeltaTime, Value.Get<FVector>());
+	FVector InputVelocity = Value.Get<FVector>();
+
+	if (CounterThrustOn) {
+		ThrustVelocity = ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
+		AddActorLocalOffset(ThrustVelocity * DeltaTime, true);
+		//AddActorWorldOffset(GlobalVector * DeltaTime, true);
+	}
 }
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
-	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-	RotationInput.Roll = Value.Get<FVector>().X;
-	RotationInput.Pitch = Value.Get<FVector>().Y;
-	RotationInput.Yaw = Value.Get<FVector>().Z;
+	const float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
+
+	if (CounterThrustOn) {
+		FVector RotVelAnimated = RotationAnimator->GetVelocity(DeltaTime, Value.Get<FVector>());
+		RotationVelocity.Roll = RotVelAnimated.X * RotationMaxVelocity.X;
+		RotationVelocity.Pitch = RotVelAnimated.Y * RotationMaxVelocity.Y;
+		RotationVelocity.Yaw = RotVelAnimated.Z * RotationMaxVelocity.Z;
+
+		AddActorLocalRotation(RotationVelocity * DeltaTime, true);
+	}
 }
 
 void ASpacecraftPlayer::ToggleCounterThrust(const FInputActionValue& Value) { CounterThrustOn = !CounterThrustOn; }
-
-void ASpacecraftPlayer::MovementCTOn(const float& DeltaTime, const FVector& InputVelocity) {
-	Velocity = ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
-
-	AddActorLocalOffset(Velocity * DeltaTime, true);
-	//AddActorWorldOffset(GlobalVector * DeltaTime, true);
-}
-
-void ASpacecraftPlayer::MovementCTOff(const float& DeltaTime) {
-
-}
-
