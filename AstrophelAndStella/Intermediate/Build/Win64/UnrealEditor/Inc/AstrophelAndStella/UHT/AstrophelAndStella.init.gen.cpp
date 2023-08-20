@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeAstrophelAndStella_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x3D675AA4,
-				0x0A699312,
+				0x4C88FC18,
+				0x266221FE,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_AstrophelAndStella.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_AstrophelAndStella.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstrophelAndStella(Z_Construct_UPackage__Script_AstrophelAndStella, TEXT("/Script/AstrophelAndStella"), Z_Registration_Info_UPackage__Script_AstrophelAndStella, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x3D675AA4, 0x0A699312));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstrophelAndStella(Z_Construct_UPackage__Script_AstrophelAndStella, TEXT("/Script/AstrophelAndStella"), Z_Registration_Info_UPackage__Script_AstrophelAndStella, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x4C88FC18, 0x266221FE));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

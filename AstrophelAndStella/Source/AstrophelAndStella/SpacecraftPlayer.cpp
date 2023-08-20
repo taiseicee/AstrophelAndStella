@@ -11,6 +11,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Math/UnrealMathUtility.h"
 
+#include "ProceduralAnimator.h"
+
 ASpacecraftPlayer::ASpacecraftPlayer() {
 	PrimaryActorTick.bCanEverTick = true;
 	ComponentMeshBase = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
@@ -24,6 +26,8 @@ ASpacecraftPlayer::ASpacecraftPlayer() {
 	ComponentCameraSpringArm->bUsePawnControlRotation = true;
 	ComponentCameraSpringArm->bEnableCameraLag = true;
 	ComponentCameraSpringArm->TargetArmLength = 5.f;
+
+	ThrustAnimator = CreateDefaultSubobject<UProceduralAnimator>(TEXT("Thrust Animator"));
 }
 
 void ASpacecraftPlayer::BeginPlay() {
@@ -33,10 +37,6 @@ void ASpacecraftPlayer::BeginPlay() {
 			Subsystem->AddMappingContext(MappingContextSpacecraft, 0);
 		}
 	}
-
-	K1 = z / (PI * f);
-	K2 = 1 / ((2 * PI * f) * (2 * PI * f));
-	K3 = r * z / (2 * PI * f);
 }
 
 void ASpacecraftPlayer::Tick(float DeltaTime) {
@@ -69,15 +69,9 @@ void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
 void ASpacecraftPlayer::ToggleCounterThrust(const FInputActionValue& Value) { CounterThrustOn = !CounterThrustOn; }
 
 void ASpacecraftPlayer::MovementCTOn(const float& DeltaTime, const FVector& InputVelocity) {
-	InputPosition = InputPosition + InputVelocity * DeltaTime;
+	Velocity = ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
 
-	float K2_Stable = 1.1f * (DeltaTime * DeltaTime / 4 + DeltaTime * K1 / 2);
-	K2_Stable = (K2 > K2_Stable) ? K2_Stable : K2;
-
-	Position = Position + DeltaTime * Velocity;
-	Velocity = Velocity + DeltaTime * (InputPosition + K3 * InputVelocity - Position - K1 * Velocity) / K2_Stable;
-
-	AddActorLocalOffset(ThrustMaxVelocity * Velocity * DeltaTime, true);
+	AddActorLocalOffset(Velocity * DeltaTime, true);
 	//AddActorWorldOffset(GlobalVector * DeltaTime, true);
 }
 

@@ -50,20 +50,11 @@ private:
 
 	// 1 UE unit = 1 cm
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector Position = FVector::ZeroVector;
-	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
    	FVector Velocity = FVector::ZeroVector;
-	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
-   	FVector InputPosition = FVector::ZeroVector;
-	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-	float f = 0.08f;
-	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-	float z = 1.f;
-	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-	float r = 0.f;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
    	FVector ThrustMaxVelocity = FVector(220.f, 155.f, 155.f);
-	float K1, K2, K3;
+	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
+	class UProceduralAnimator* ThrustAnimator;
 
 	UPROPERTY(VisibleAnywhere, Category="Movement|Rotation")
    	FRotator Rotation = FRotator::ZeroRotator;
@@ -74,6 +65,6 @@ private:
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
    	FRotator RotationMaxVelocity = FRotator(40.f, 40.f, 40.f);
 
-	void MovementCTOn(const float& DeltaTime, const FVector& Input);
+	void MovementCTOn(const float& DeltaTime, const FVector& InputVelocity);
    	void MovementCTOff(const float& DeltaTime);
 };
