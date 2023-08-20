@@ -3,13 +3,10 @@
 
 #include "SpacecraftPlayer.h"
 #include "Camera/CameraComponent.h"
-#include "Components/BoxComponent.h"
 #include "Components/InputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-#include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Math/UnrealMathUtility.h"
 #include "ProceduralAnimator.h"
 
 ASpacecraftPlayer::ASpacecraftPlayer() {
@@ -52,11 +49,13 @@ void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
 	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
 	FVector InputVelocity = Value.Get<FVector>();
 
-	if (CounterThrustOn) {
-		ThrustVelocity = ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
-		AddActorLocalOffset(ThrustVelocity * DeltaTime, true);
-		//AddActorWorldOffset(GlobalVector * DeltaTime, true);
+	if (!CounterThrustOn) {
+		FVector VelocityPercent = ThrustVelocity / ThrustMaxVelocity;
+		InputVelocity = InputVelocity * (InputVelocity - VelocityPercent).GetAbs() + VelocityPercent;
 	}
+
+	ThrustVelocity = GetActorQuat() * ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
+	AddActorWorldOffset(ThrustVelocity * DeltaTime, true);
 }
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
