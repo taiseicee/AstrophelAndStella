@@ -60,15 +60,21 @@ void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
 	const float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
+	FVector InputVelocity = Value.Get<FVector>();
 
-	if (CounterThrustOn) {
-		FVector RotVelAnimated = RotationAnimator->GetVelocity(DeltaTime, Value.Get<FVector>());
-		RotationVelocity.Roll = RotVelAnimated.X * RotationMaxVelocity.X;
-		RotationVelocity.Pitch = RotVelAnimated.Y * RotationMaxVelocity.Y;
-		RotationVelocity.Yaw = RotVelAnimated.Z * RotationMaxVelocity.Z;
-
-		AddActorLocalRotation(RotationVelocity * DeltaTime, true);
+	if (!CounterThrustOn) {
+		FVector VelocityPercent = FVector::ZeroVector;
+		VelocityPercent.X = RotationVelocity.Roll / RotationMaxVelocity.X;
+		VelocityPercent.Y = RotationVelocity.Pitch / RotationMaxVelocity.Y;
+		VelocityPercent.Z = RotationVelocity.Yaw / RotationMaxVelocity.Z;
+		InputVelocity = InputVelocity * (InputVelocity - VelocityPercent).GetAbs() + VelocityPercent;
 	}
+
+	FVector RotVelAnimated = RotationAnimator->GetVelocity(DeltaTime, InputVelocity);
+	RotationVelocity.Roll = RotVelAnimated.X * RotationMaxVelocity.X;
+	RotationVelocity.Pitch = RotVelAnimated.Y * RotationMaxVelocity.Y;
+	RotationVelocity.Yaw = RotVelAnimated.Z * RotationMaxVelocity.Z;
+	AddActorLocalRotation(RotationVelocity * DeltaTime, true);
 }
 
 void ASpacecraftPlayer::ToggleCounterThrust(const FInputActionValue& Value) { CounterThrustOn = !CounterThrustOn; }
