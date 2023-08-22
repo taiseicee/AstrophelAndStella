@@ -36,5 +36,7 @@ private:
 
 public:
 	FVector GetVelocity(const float& DeltaTime, const FVector& InputVelocity);
+	FVector GetVelocitySimple();
+	void SetVelocity(const float& DeltaTime, const FVector& InputVelocity);
 
 };

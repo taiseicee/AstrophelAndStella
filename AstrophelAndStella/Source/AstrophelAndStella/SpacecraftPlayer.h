@@ -49,14 +49,22 @@ private:
 	UPROPERTY(VisibleAnywhere, Category="Movement|Thrust")
    	FVector ThrustVelocity = FVector::ZeroVector;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
-   	FVector ThrustMaxVelocity = FVector(22000.f, 15500.f, 15500.f);
+   	FVector ThrustRatio = FVector(1.f, 0.7f, 0.7f);
+	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
+   	float ThrustMaxVelocity = 22000.f;
+	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
+   	float ThrustAcceleration = 1.f;
 	UPROPERTY(EditAnywhere, Category="Movement|Thrust")
 	class UProceduralAnimator* ThrustAnimator;
 
 	UPROPERTY(VisibleAnywhere, Category="Movement|Rotation")
    	FRotator RotationVelocity = FRotator::ZeroRotator;
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
-   	FVector RotationMaxVelocity = FVector(40.f, 40.f, 40.f);
+   	FVector RotationRatio = FVector(1.f, 1.f, 1.f);
+	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
+   	float RotationMaxVelocity = 40.f;
+	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
+   	float RotationAcceleration = 1.f;
 	UPROPERTY(EditAnywhere, Category="Movement|Rotation")
 	class UProceduralAnimator* RotationAnimator;
 };

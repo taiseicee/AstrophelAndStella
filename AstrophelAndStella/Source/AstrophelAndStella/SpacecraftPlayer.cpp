@@ -47,33 +47,39 @@ void ASpacecraftPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 void ASpacecraftPlayer::HandleInputThrust(const FInputActionValue& Value) {
 	float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-	FVector InputVelocity = Value.Get<FVector>();
+	FVector Input = Value.Get<FVector>().GetClampedToSize(-1.f, 1.f);
+	Input = GetActorForwardVector() * Input.X * ThrustRatio.X +
+			GetActorRightVector() * Input.Y * ThrustRatio.Y +
+			GetActorUpVector() * Input.Z  * ThrustRatio.Z;
 
-	if (!CounterThrustOn) {
-		FVector VelocityPercent = ThrustVelocity / ThrustMaxVelocity;
-		InputVelocity = InputVelocity * (InputVelocity - VelocityPercent).GetAbs() + VelocityPercent;
+	if (CounterThrustOn) {
+		ThrustVelocity = ThrustAnimator->GetVelocity(DeltaTime, Input) * ThrustMaxVelocity;
+	} else {
+		FVector Velocity = (ThrustAnimator->GetVelocitySimple() + ThrustAcceleration * DeltaTime * Input).GetClampedToSize(-1.f, 1.f);
+		ThrustAnimator->SetVelocity(DeltaTime, Velocity);
+		ThrustVelocity = Velocity * ThrustMaxVelocity;
 	}
 
-	ThrustVelocity = GetActorQuat() * ThrustAnimator->GetVelocity(DeltaTime, InputVelocity) * ThrustMaxVelocity;
-	AddActorWorldOffset(ThrustVelocity * DeltaTime, true);
+	AddActorWorldOffset(DeltaTime * ThrustVelocity, true);
 }
 
 void ASpacecraftPlayer::HandleInputRotate(const FInputActionValue& Value) {
 	const float DeltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
-	FVector InputVelocity = Value.Get<FVector>();
+	FVector Input = Value.Get<FVector>() * RotationRatio;
 
-	if (!CounterThrustOn) {
-		FVector VelocityPercent = FVector::ZeroVector;
-		VelocityPercent.X = RotationVelocity.Roll / RotationMaxVelocity.X;
-		VelocityPercent.Y = RotationVelocity.Pitch / RotationMaxVelocity.Y;
-		VelocityPercent.Z = RotationVelocity.Yaw / RotationMaxVelocity.Z;
-		InputVelocity = InputVelocity * (InputVelocity - VelocityPercent).GetAbs() + VelocityPercent;
+	if (CounterThrustOn) {
+		FVector RotVelAnimated = RotationAnimator->GetVelocity(DeltaTime, Input) * RotationMaxVelocity;
+		RotationVelocity.Roll = RotVelAnimated.X;
+		RotationVelocity.Pitch = RotVelAnimated.Y;
+		RotationVelocity.Yaw = RotVelAnimated.Z;
+	} else {
+		FVector Velocity = (RotationAnimator->GetVelocitySimple() + RotationAcceleration * DeltaTime * Input).GetClampedToSize(-1.f, 1.f);
+		RotationAnimator->SetVelocity(DeltaTime, Velocity);
+		RotationVelocity.Roll = Velocity.X * RotationMaxVelocity;
+		RotationVelocity.Pitch = Velocity.Y * RotationMaxVelocity;
+		RotationVelocity.Yaw = Velocity.Z * RotationMaxVelocity;
 	}
 
-	FVector RotVelAnimated = RotationAnimator->GetVelocity(DeltaTime, InputVelocity);
-	RotationVelocity.Roll = RotVelAnimated.X * RotationMaxVelocity.X;
-	RotationVelocity.Pitch = RotVelAnimated.Y * RotationMaxVelocity.Y;
-	RotationVelocity.Yaw = RotVelAnimated.Z * RotationMaxVelocity.Z;
 	AddActorLocalRotation(RotationVelocity * DeltaTime, true);
 }
 
