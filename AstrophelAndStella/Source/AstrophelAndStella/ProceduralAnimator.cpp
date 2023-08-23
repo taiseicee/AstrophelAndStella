@@ -28,7 +28,12 @@ FVector UProceduralAnimator::GetVelocity(const float& DeltaTime, const FVector& 
 FVector UProceduralAnimator::GetVelocitySimple() { return Velocity; }
 
 void UProceduralAnimator::SetVelocity(const float& DeltaTime, const FVector& InputVelocity) {
-	Position = Position + DeltaTime * InputVelocity;
-	InputPosition = InputPosition + InputVelocity * DeltaTime;
+	FVector Acceleration = (Velocity - InputVelocity) / DeltaTime;
 	Velocity = InputVelocity;
+	Position = Position + DeltaTime * Velocity;
+
+	float K2_Stable = 1.1f * (DeltaTime * DeltaTime / 4 + DeltaTime * K1 / 2);
+	K2_Stable = (K2 > K2_Stable) ? K2_Stable : K2;
+	
+	InputPosition = Position + K1 * Velocity + K2_Stable * Acceleration - K3 * InputVelocity;
 }
